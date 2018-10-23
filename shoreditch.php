@@ -158,4 +158,13 @@ function shoreditch_civicrm_pageRun(&$page) {
   if ($pageName == 'CRM_Contact_Page_View_Summary') {
     CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'js/contact-summary.js');
   }
+  // Add missing viewport metatag to header
+  $viewport = array(
+   '#tag' => 'meta',
+   '#attributes' => array(
+     'name' => 'viewport',
+     'content' => 'width=device-width, initial-scale=1, maximum-scale=1',
+   ),
+  );
+  drupal_add_html_head($viewport, 'viewport');
 }
